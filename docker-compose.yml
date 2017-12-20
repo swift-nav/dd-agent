@@ -5,10 +5,12 @@ services:
     environment:
      - API_KEY
      - DD_APM_ENABLED=true
+     - DD_PROCESS_AGENT_ENABLED=true
     volumes:
       - /var/run/docker.sock:/var/run/docker.sock
       - /proc/:/host/proc
       - /cgroup/:/host/sys/fs/cgroup
+      - /etc/passwd:/etc/passwd:ro
     ports:
       - 8125/udp
       - 8126/tcp
